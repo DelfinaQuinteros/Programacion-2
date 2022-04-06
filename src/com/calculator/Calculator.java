@@ -1,26 +1,42 @@
 package com.calculator;
 
 public class Calculator {
-    public int add(int num1, int num2) {
-        return num1 + num2;
-    }
-
-    public int subtraction(int num1, int num2) {
-        return num1 - num2;
-    }
-
-    public int division(int num1, int num2) {
+    public int add(Integer ... numbers) {
         int result = 0;
-        if (num2 > 0) {
-            result = num1 / num2;
-        } else {
-            System.out.println("Cannot be divided by 0");
+        for (int num:numbers) {
+            result = num + result;
         }
         return result;
     }
 
-    public int multiplication(int num1, int num2) {
-        return num1 * num2;
+
+    public int subtraction(Integer ... numbers) {
+        int result = 0;
+        for (int num:numbers) {
+            result = result - num;
+        }
+        return result;
     }
+
+    public int division(Integer ... numbers) {
+        int result = numbers[0];
+        for (int num:numbers) {
+            if (num != numbers[0]) {
+                result = result / num;
+            }
+        }
+        return result;
+    }
+
+    public int multiplication(Integer ... numbers) {
+        int result = 1;
+        for (int num:numbers) {
+            System.out.println(num);
+            result = num * result;
+        }
+        return result;
+    }
+
+
 }
 
